@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>역할 뽑기 프로그램</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>역할 뽑기 프로그램</h1>
+    
+    <div class="container">
+        <div class="section">
+            <h2>역할 목록</h2>
+            <div class="input-group">
+                <input type="text" id="jobInput" placeholder="역할 이름">
+                <button onclick="addJob()">추가</button>
+            </div>
+            
+            <!-- 일괄 업로드 기능 -->
+            <div class="bulk-upload">
+                <button class="toggle-btn" onclick="toggleJobUpload()">일괄 업로드 ▼</button>
+                <div class="upload-area" id="jobUploadArea">
+                    <p class="upload-info">여러 역할들을 한 번에 추가하세요. 쉼표(,) 또는 줄바꿈으로 구분합니다.</p>
+                    <textarea id="jobBulkInput" placeholder="예: 급식 당번, 급식 청소, 교실쓸기&#10;"></textarea>
+                    <button onclick="bulkAddJobs()">일괄 추가</button>
+                </div>
+            </div>
+            
+            <ul id="jobList"></ul>
+        </div>
+        
+        <div class="section">
+            <h2>학생 목록</h2>
+            <div class="input-group">
+                <input type="text" id="studentInput" placeholder="학생 이름">
+                <button onclick="addStudent()">추가</button>
+            </div>
+            
+            <!-- 일괄 업로드 기능 -->
+            <div class="bulk-upload">
+                <button class="toggle-btn" onclick="toggleStudentUpload()">일괄 업로드 ▼</button>
+                <div class="upload-area" id="studentUploadArea">
+                    <p class="upload-info">여러 학생을 한 번에 추가하세요. 쉼표(,) 또는 줄바꿈으로 구분합니다.</p>
+                    <textarea id="studentBulkInput" placeholder="예: 김철수, 이영희, 박지민&#10;최동욱&#10;정수민"></textarea>
+                    <button onclick="bulkAddStudents()">일괄 추가</button>
+                </div>
+            </div>
+            
+            <ul id="studentList"></ul>
+        </div>
+        
+        <div class="section">
+            <div class="section-header">
+                <h2>지원자 선택</h2>
+                <button id="expandApplicationsBtn" class="expand-btn" title="확대 보기">
+                    <i class="fas fa-expand"></i> 확대
+                </button>
+            </div>
+            <select id="jobSelect"></select>
+            <select id="studentSelect"></select>
+            <button onclick="applyStudent()">지원</button>
+            <ul id="applicationList"></ul>
+        </div>
+        
+        <div class="section">
+            <h2>랜덤 선발</h2>
+            <button onclick="randomSelect()">선발</button>
+            <ul id="resultList"></ul>
+        </div>
+    </div>
+
+    <!-- 사용법 버튼 -->
+    <button id="helpBtn" class="help-button">사용법</button>
+
+    <!-- 도움말 모달 -->
+    <div id="helpModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>사용 방법</h2>
+                <span class="close-button">&times;</span>
+            </div>
+            <div class="modal-body">
+                <h3>아르바이트 추첨 프로그램 사용법</h3>
+                <ol>
+                    <li><strong>역할 목록 추가</strong>: 역할 이름을 입력하고 추가 버튼을 클릭합니다.</li>
+                    <li><strong>학생 목록 추가</strong>: 학생 이름을 입력하고 추가 버튼을 클릭합니다.</li>
+                    <li><strong>지원자 선택</strong>: 드롭다운에서 역할과 학생을 선택하고 지원 버튼을 클릭합니다.</li>
+                    <li><strong>랜덤 선발</strong>: 각 역할별로 정한 인원수에 맞게 랜덤 선발 버튼을 클릭하면 결과가 나옵니다.</li>
+                </ol>
+                <p>일괄 업로드 기능을 사용하면 여러 개의 역할이나 학생 이름을 한 번에 추가할 수 있습니다. 쉼표나 줄바꿈으로 구분하여 입력하세요.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 지원자 확대 모달 -->
+    <div id="applicationsModal" class="modal applications-modal">
+        <div class="modal-content large-modal">
+            <div class="modal-header">
+                <h2>지원 현황</h2>
+                <span class="close-button">&times;</span>
+            </div>
+            <div class="modal-body">
+                <!-- 테이블은 JavaScript로 동적 생성됩니다 -->
+            </div>
+        </div>
+    </div>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script src="script.js"></script>
+</body>
+</html>
