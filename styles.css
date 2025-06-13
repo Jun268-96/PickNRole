@@ -306,79 +306,36 @@ li button {
 
 /* 지원자 선택 영역 스타일 개선 */
 #applicationList li {
-    padding: 1rem;
-    text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+    transition: all 0.2s ease;
+    margin-bottom: 0.8rem;
+    gap: 0.8rem;
+    min-height: auto;
 }
 
 #applicationList .job-info {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    flex-wrap: wrap;
     width: 100%;
-    text-align: center;
-    font-weight: 600;
-    padding-bottom: 5px;
-    border-bottom: 1px dashed #e9ecef;
-    gap: 5px;
 }
 
-.job-name {
-    font-size: 1.2rem;
-    color: var(--primary);
-}
 
-.applicant-count {
-    font-size: 0.9rem;
-    color: #666;
-    background-color: #f8f9fa;
-    padding: 3px 10px;
-    border-radius: 15px;
-    display: inline-block;
-}
 
-.job-buttons-container {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 5px;
-}
 
-.view-applicants-btn, .clear-applicants-btn {
-    font-size: 0.85rem;
-    padding: 5px 10px;
-    border-radius: var(--border-radius);
-}
 
-.view-applicants-btn {
-    background-color: #4dabf7;
-}
 
-.view-applicants-btn:hover {
-    background-color: #339af0;
-}
 
-.clear-applicants-btn {
-    background-color: #ff6b6b;
-}
 
-.clear-applicants-btn:hover {
-    background-color: #fa5252;
-}
 
-#applicationList .job-count-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 8px;
-    gap: 10px;
-    background-color: #f0f7ff;
-    border: 1px solid #e0eeff;
-    padding: 5px;
-    border-radius: var(--border-radius);
-}
+
 
 li button:hover {
     background-color: #d90166;
@@ -785,17 +742,7 @@ button:focus {
     gap: 0.5rem;
 }
 
-#applicationList li {
-    display: flex;
-    flex-direction: column;
-    padding: 0.8rem 1rem;
-    background-color: #f8f9fa;
-    border-radius: 6px;
-    border: 1px solid #e9ecef;
-    transition: all 0.2s ease;
-    min-height: 50px;
-    gap: 0.5rem;
-}
+
 
 #applicationList li:hover {
     background-color: #f1f3f5;
