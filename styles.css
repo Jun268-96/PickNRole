@@ -127,6 +127,33 @@ h1::after {
     ul {
         max-height: 400px; /* 작은 화면에서 목록 높이 조정 */
     }
+    
+    /* 모바일에서 지원자 선택 섹션 개선 */
+    .job-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .job-name {
+        font-size: 1rem;
+    }
+    
+    .job-buttons-container {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .view-applicants-btn, .clear-applicants-btn {
+        min-width: 100px;
+        flex: 1;
+    }
+    
+    .job-count-container {
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 0.5rem;
+    }
 }
 
 .section {
@@ -760,13 +787,14 @@ button:focus {
 
 #applicationList li {
     display: flex;
-    align-items: center;
-    padding: 0.5rem 1rem;
+    flex-direction: column;
+    padding: 0.8rem 1rem;
     background-color: #f8f9fa;
     border-radius: 6px;
     border: 1px solid #e9ecef;
     transition: all 0.2s ease;
-    height: 50px;
+    min-height: 50px;
+    gap: 0.5rem;
 }
 
 #applicationList li:hover {
@@ -774,10 +802,11 @@ button:focus {
 }
 
 .job-info {
-    flex: 1;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    justify-content: space-between;
+    gap: 0.5rem;
+    flex-wrap: wrap;
 }
 
 .job-name {
@@ -798,7 +827,8 @@ button:focus {
 .job-buttons-container {
     display: flex;
     gap: 8px;
-    margin-top: 0.8rem;
+    margin-top: 0;
+    flex-wrap: wrap;
 }
 
 .view-applicants-btn, .clear-applicants-btn {
